@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MonitorDNP3Class</class>
+ <widget class="QMainWindow" name="MonitorDNP3Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1182</width>
+    <height>697</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MonitorDNP3</string>
+  </property>
+  <widget class="QWidget" name="mainWidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+	background-color: #181b1e;
+}</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="leftFrame">
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>250</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+	border-radius: 0px;
+	border-right: 1px solid #303337;
+}
+
+QLabel{
+	font-size: 10px;
+	color: #7a7a7a;
+	border: none;
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+QListWidget {
+    background-color: #1e2124;
+    border: none;
+	font-size: 10px; 
+}
+
+QListWidget::item {
+    padding: 6px;
+    border-bottom: 1px solid #2a2d30;
+    color: #7a7a7a;
+	padding-left: 15px;
+}
+
+QListWidget::item:hover {
+    background-color: #2e3136;
+}
+
+QListWidget:focus {
+	outline: none;
+}
+
+QListWidget::item:selected {
+    background-color: #2e3136;
+    color: #ffffff;
+	outline: none;
+}
+
+QListWidget::item:selected:!active {
+    background-color: #1e2124;
+    color: #7a7a7a;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="addFrame">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+	border: 1px solid #303337;
+	border-radius: 5px;
+	color: #7a7a7a;
+	font-size: 11px;
+	padding-left: 5px;
+}
+
+QPushButton {
+	color: #7a7a7a;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="leftMargin">
+           <number>5</number>
+          </property>
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="rightMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>6</number>
+          </property>
+          <item row="4" column="0">
+           <widget class="QLabel" name="lbl_TCP_Port">
+            <property name="text">
+             <string>   IED TCP Port</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="inputIEDname"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="lbl_Add_IED">
+            <property name="text">
+             <string>ADD IEDs</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="inputIEDip"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lbl_IED_Name">
+            <property name="text">
+             <string>   IED Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lbl_IED_IP">
+            <property name="text">
+             <string>   IED IP Address</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="inputIEDport"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLineEdit" name="inputIEDdnp"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lbl_DNP_Add">
+            <property name="text">
+             <string>   IED DNP Address</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" colspan="2">
+           <widget class="QPushButton" name="btnAddIED">
+            <property name="text">
+             <string>Add IED</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblConnectedIEDs">
+         <property name="text">
+          <string>CONNECTED IEDs</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="iedList"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="rightFrame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="viewsFrame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+	border-bottom: 1px solid #303337;
+	border-radius: 0px;
+}
+
+QPushButton {
+    background-color: #181b1e;
+    color: #7a7a7a;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 4px 8px;
+}
+
+QPushButton:hover, QPushButton:checked {
+    border-bottom: 1px solid #39ff14;
+    color: white;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="btnViewDig">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Digitals</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnViewAna">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Analogs</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnViewCmd">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>Commands</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnViewSOE">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>SOE</string>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QStackedWidget" name="stackedWidget">
+         <property name="styleSheet">
+          <string notr="true">QTableWidget{
+	font-size: 10px;
+	selection-background-color: #1e2124;
+    selection-color: #000000;
+}
+
+QHeaderView::section{
+	font-size: 10px;
+	background-color: #181b1e;
+    color: #7a7a7a;
+	font-weight: bold;
+    border: none;
+    border-bottom: 1px solid #303337;
+    padding: 4px 8px;
+}
+
+QTableWidget::item {
+	border: none;
+    border-bottom: 1px solid #3a3d40;
+    padding: 4px;
+	color: #7a7a7a;
+}
+
+QTableWidget:focus {
+	outline: none;
+}
+
+QTableWidget::item:hover {
+    background-color: #2e3136;
+}
+
+QTableWidget::item:selected {
+    background-color: #2e3136;
+    color: #FFFFFF;
+	outline: none;
+}
+
+QTableWidget::item:selected:!active {
+    background-color: #1e2124;
+    color: #ffffff;
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="page1Digitals">
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="filterFrame">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color: #7a7a7a;
+}
+
+QComboBox{
+	font-size: 10px;
+	color: #7a7a7a;
+}
+
+QLineEdit {
+	border: 1px solid #303337;
+	border-radius: 5px;
+	color: #7a7a7a;
+	font-size: 11px;
+	padding-left: 5px;
+}
+</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="lblCategory">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>70</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Category</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboCategory">
+                <property name="minimumSize">
+                 <size>
+                  <width>110</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>110</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <item>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>SUBSTATION</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RELAY NAME</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RELAY DNP ADD</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>INDEX</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DESCRIPTION</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>VALUE</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>QUALITY</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>LAST TIMESTAMP</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>150</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tblDigitals">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="verticalHeaderHighlightSections">
+              <bool>true</bool>
+             </attribute>
+             <row/>
+             <row/>
+             <row/>
+             <column>
+              <property name="text">
+               <string>SUBSTATION</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>RELAY NAME</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>RELAY DNP ADD</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>INDEX</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>DESCRIPTION</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>VALUE</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>QUALITY</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>LAST TIMESTAMP</string>
+              </property>
+             </column>
+             <item row="0" column="0">
+              <property name="text">
+               <string>SE CNA3</string>
+              </property>
+             </item>
+             <item row="0" column="1">
+              <property name="text">
+               <string>LT1-UPCP</string>
+              </property>
+             </item>
+             <item row="0" column="2">
+              <property name="text">
+               <string>136</string>
+              </property>
+             </item>
+             <item row="0" column="3">
+              <property name="text">
+               <string>0</string>
+              </property>
+             </item>
+             <item row="0" column="4">
+              <property name="text">
+               <string>Breaker Closed Status</string>
+              </property>
+             </item>
+             <item row="0" column="5">
+              <property name="text">
+               <string>TRUE</string>
+              </property>
+             </item>
+             <item row="0" column="6">
+              <property name="text">
+               <string>Communication Failed</string>
+              </property>
+             </item>
+             <item row="0" column="7">
+              <property name="text">
+               <string>2025-06-13 | 10:00:00.000</string>
+              </property>
+             </item>
+             <item row="1" column="0">
+              <property name="text">
+               <string>SE CNA3</string>
+              </property>
+             </item>
+             <item row="1" column="1">
+              <property name="text">
+               <string>LT1-UPCP</string>
+              </property>
+             </item>
+             <item row="1" column="2">
+              <property name="text">
+               <string>136</string>
+              </property>
+             </item>
+             <item row="1" column="3">
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item row="1" column="4">
+              <property name="text">
+               <string>Breaker Open Status</string>
+              </property>
+             </item>
+             <item row="1" column="5">
+              <property name="text">
+               <string>FALSE</string>
+              </property>
+             </item>
+             <item row="1" column="6">
+              <property name="text">
+               <string>Communication Failed</string>
+              </property>
+             </item>
+             <item row="1" column="7">
+              <property name="text">
+               <string>2025-06-13 | 10:04:32.134</string>
+              </property>
+             </item>
+             <item row="2" column="0">
+              <property name="text">
+               <string>SE CNA3</string>
+              </property>
+             </item>
+             <item row="2" column="1">
+              <property name="text">
+               <string>LT1-UPCP</string>
+              </property>
+             </item>
+             <item row="2" column="2">
+              <property name="text">
+               <string>136</string>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>7</pointsize>
+               </font>
+              </property>
+             </item>
+             <item row="2" column="3">
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item row="2" column="4">
+              <property name="text">
+               <string>Breaker Alarm Condition</string>
+              </property>
+             </item>
+             <item row="2" column="5">
+              <property name="text">
+               <string>FALSE</string>
+              </property>
+             </item>
+             <item row="2" column="6">
+              <property name="text">
+               <string>Communication Failed</string>
+              </property>
+             </item>
+             <item row="2" column="7">
+              <property name="text">
+               <string>2025-06-13 | 10:04:38.427</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page3Commands">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="tblCommands">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page4SOE">
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="tblSOE">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page2Analogs">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QTableWidget" name="tblAnalogs">
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1182</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+    background-color: #181b1e;
+    color: white;
+    border-bottom: 1px solid #303337;
+	font-size: 13px;
+}
+
+QMenuBar::item:selected {
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid #39ff14;
+    padding-bottom: 2px;
+}
+
+QMenuBar::item {
+    border-bottom: 1px solid transparent;
+	padding: 4px 8px;
+}
+
+</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuAbout"/>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>inputIEDname</tabstop>
+  <tabstop>inputIEDip</tabstop>
+  <tabstop>inputIEDdnp</tabstop>
+  <tabstop>inputIEDport</tabstop>
+  <tabstop>btnAddIED</tabstop>
+  <tabstop>iedList</tabstop>
+  <tabstop>btnViewDig</tabstop>
+  <tabstop>btnViewAna</tabstop>
+  <tabstop>btnViewCmd</tabstop>
+  <tabstop>btnViewSOE</tabstop>
+  <tabstop>comboCategory</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>tblDigitals</tabstop>
+  <tabstop>tblCommands</tabstop>
+  <tabstop>tblAnalogs</tabstop>
+  <tabstop>tblSOE</tabstop>
+ </tabstops>
+ <resources>
+  <include location="MonitorDNP3.qrc"/>
+ </resources>
+ <connections/>
+</ui>

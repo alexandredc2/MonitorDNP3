@@ -1,0 +1,8 @@
+{
+  "name": "monitordnp3",
+  "version": "0.1.0",
+  "builtin-baseline": "243a487ff81cac06ae01d490bfeab12cc0593e0d",
+  "dependencies": [
+    "opendnp3"
+  ]
+}
